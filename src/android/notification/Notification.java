@@ -162,7 +162,7 @@ public class Notification {
      * Schedule the local notification.
      */
     public void schedule() {
-        long triggerTime = options.getTriggerTime();
+        long at = options.getAt();
 
         persist();
 
@@ -176,9 +176,9 @@ public class Notification {
 
         if (isRepeating()) {
             getAlarmMgr().setRepeating(AlarmManager.RTC_WAKEUP,
-                    triggerTime, options.getRepeatInterval(), pi);
+                    at, options.getRepeatInterval(), pi);
         } else {
-            getAlarmMgr().set(AlarmManager.RTC_WAKEUP, triggerTime, pi);
+            getAlarmMgr().set(AlarmManager.RTC_WAKEUP, at, pi);
         }
     }
 

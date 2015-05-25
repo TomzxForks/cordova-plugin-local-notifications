@@ -220,6 +220,13 @@ public class Options {
     }
 
     /**
+     * Start at date in milliseconds.
+     */
+    public long getAt() {
+        return options.optLong("at", 0) * 1000;
+    }
+
+    /**
      * Title for the local notification.
      */
     public String getTitle() {
